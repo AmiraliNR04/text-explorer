@@ -32,3 +32,8 @@ Two patterns, same job:
    (e.g., `session.stats`, `session.success`, `session.duration`).
 
 Both use `try/finally` under the hood, so cleanup runs **even on error**.
+
+
+- Timing is handled entirely by the CLI (`--no-timing` disables all timing).
+  The `Analyzer` library itself never prints — it only returns `TextStats`.
+  This keeps the library usable in APIs, notebooks, and tests.

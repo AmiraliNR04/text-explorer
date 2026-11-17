@@ -11,7 +11,6 @@ class TextStats:
     top_words: list = field(default_factory=list)
 
 
-from timing import timed
 
 class Analyzer:
     """Analyze text in a single pass, without loading it into memory."""
@@ -19,7 +18,7 @@ class Analyzer:
     def __init__(self, lines: Iterable[str], top_n: int = 10):
         self.lines = lines
         self.top_n = top_n
-    @timed
+    
     def analyze(self) -> TextStats:
         line_count = 0
         word_count = 0
