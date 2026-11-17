@@ -1,3 +1,4 @@
+import sys 
 import time
 from contextlib import contextmanager
 
@@ -10,8 +11,7 @@ def timed_block(label):
         yield
     finally:
         duration = time.perf_counter() - start
-        print(f"[timed] {label}: {duration:.3f}s")
-
+        print(f"[timed] {label}: {duration:.3f}s", file=sys.stderr)
 
 class AnalysisSession:
     """Class-based context manager for analysis tracking.
